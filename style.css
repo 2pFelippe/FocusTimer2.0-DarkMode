@@ -1,0 +1,207 @@
+*{
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root{
+  --svg-background-fill: #E1E1E6;
+  --svg-background-selected: #02799D;
+  --svg-icon-fill: #323238;
+  --svg-icon-fill-selected: white;
+
+  font-size: 62,5%;
+}
+
+body{
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+body.dark{
+  background-color: black;
+}
+
+.light-icon,
+.dark-icon{
+  position: absolute;
+  top:6rem;
+  right: 6rem;
+  cursor: pointer;
+}
+
+main{
+  display: flex;
+  gap: 10rem;
+}
+
+.timer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sounds{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.sounds button{
+  padding: 2rem 2.3rem;
+  border-radius: 2.4rem;
+  gap: 2rem;
+}
+
+.sounds.dark button{
+  background: hsla(240, 6%, 17%, 1);
+}
+
+.sounds.dark button.active{
+  background: hsla(195, 74%, 15%, 1);
+}
+
+input{
+  -webkit-appearance: none;
+  background-color: #323238;
+  border-radius: 20px;
+  width: 5rem;
+  height: 4px;  
+}
+
+.dark input{
+  background-color: white;
+}
+
+button.active{
+  background-color: var(--svg-background-selected);
+}
+
+button.active input{
+  background-color: white;
+}
+
+input::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  background-color: #323238;
+  width: 16px;
+  height: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: scale(0.4s);
+}
+
+.dark input::-webkit-slider-thumb{
+  background-color: white;
+}
+
+input::-webkit-slider-thumb:hover{
+  transform: scale(1.2);
+}
+
+button.active input::-webkit-slider-thumb{
+  background-color: white;
+}
+
+.time{
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 4rem;
+  color: hsla(240, 6%, 21%, 1);
+  margin-bottom: 2rem;
+}
+
+.time.dark{
+  color: white;
+}
+
+.controls{
+  display: flex;
+  gap: 2.4rem;
+}
+
+.controls svg{
+  transition: scale(0.4s);
+}
+
+.controls svg:hover{
+  transform: scale(1.2);
+}
+
+.controls button{
+  background: none;
+  border-radius: 9999px;
+}
+
+.controls.dark button svg path,
+.sounds.dark button svg path{
+  fill: #C4C4CC;
+}
+
+button{
+  border: none;
+  background-color: #E1E1E6;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+
+.coffee svg path.insidecolor,
+.fireplace svg path.insidecolor,
+.forest svg path.insidecolor,
+.rain svg path.insidecolor{
+  fill: var(--svg-icon-fill);
+}
+
+.active svg path.insidecolor{
+  fill: var(--svg-icon-fill-selected);
+}
+
+.hide{
+  display: none;
+}
+
+
+@media (max-width: 700px){
+  main{
+   flex-direction: column;
+   gap: 3rem;
+  }
+
+  .sounds{
+    gap:1rem;
+    margin-left: 0;
+  }
+
+  .controls{
+    height: 3rem;
+    gap: 1.2rem;
+  }
+  
+  .controls button svg{
+    width: 1.7rem;
+  }
+  
+  .time{
+    font-size: 2.2rem;
+    margin-bottom: 0;
+  }
+
+  .light-icon{
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .dark-icon{
+    top: 2rem;
+    right: 2rem;
+  }
+}
